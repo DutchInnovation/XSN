@@ -1,3 +1,4 @@
+<?php include 'header.php' ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,22 +8,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <!-- <nav>
-      <div class="logo">
-        <i class="fab fa-instagram"></i>
-        <h1>InstaClone</h1>
-      </div>
-      
-      <div class="nav-icons">
-        <a href="#"><i class="fas fa-home"></i></a>
-        <a href="#"><i class="far fa-paper-plane"></i></a>
-        <a href="#"><i class="far fa-compass"></i></a>
-        <a href="#"><i class="far fa-heart"></i></a>
-        <a href="#"><i class="far fa-user"></i></a>
-      </div>
-    </nav> -->
-
-    <header>
+        <header>
         <div class="logo">
           <a href="index.php">
             <img src="assets/logo.png" alt="Logo"  height="176">
@@ -40,11 +26,7 @@
             <a href="login.php">login</a> | language
             </div>
       </header>
-      
-
-
-    <main>
-
+      <main>
         <div class="carousel-container">
             <div class="carousel">
               <div class="slide active">
@@ -83,11 +65,7 @@
               <span class="dot"></span>
             </div>
           </div>
-          
-
-
-
-      <div class="profile-info">
+          <div class="profile-info">
         <img src="assets/profile.jpg" alt="Profile Picture">
         <div class="profile-details">
           <h2>John Doe</h2>

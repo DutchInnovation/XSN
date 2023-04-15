@@ -1,0 +1,44 @@
+activity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+activity-image {
+  flex: 1;
+}
+activity-info {
+  flex: 2;
+}
+activity-name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+activity-description {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+}
+activity-location {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+}
+activity-organiser {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+}
+activity-supervisor {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+}
+activity-attendees {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+}

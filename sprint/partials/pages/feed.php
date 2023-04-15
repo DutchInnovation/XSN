@@ -6,7 +6,7 @@
   <feed-item-header>
     <span class="title">
       <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-      <span class="float-right">2 hours ago</span>
+      <span class="float-right text-black-50">2 hours ago</span>
     </span>
   </feed-item-header>
   <img class="img-fluid" src="assets/img/pic1.jpg">
@@ -26,7 +26,7 @@
   <feed-item-header>
     <span class="title">
       <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-      <span class="float-right">2 hours ago</span>
+      <span class="float-right text-black-50">2 hours ago</span>
     </span>
   </feed-item-header>
   <img class="img-fluid" src="assets/img/pic2.jpg">

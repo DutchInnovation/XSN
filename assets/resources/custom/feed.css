@@ -1,0 +1,32 @@
+feed-header {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+feed-item {
+  display: block;
+  width: 500px;
+  height: content;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+feed-item-header {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+interactions {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+interaction {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}

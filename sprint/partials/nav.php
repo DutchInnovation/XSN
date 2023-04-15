@@ -28,8 +28,17 @@
     <span class="material-icons">settings</span>
     <span>Settings</span>
   </nav-element>
-  <nav-element onclick="navigate(this, 'profile-tab')">
-    <span class="material-icons">person</span>
-    <span>Profile</span>
-  </nav-element>
+
+  <?php if (isset($_SESSION["loggedin"])) { ?>
+    <nav-element onclick="navigate(this, 'profile-tab')">
+      <span class="material-icons">person</span>
+      <span>Profile</span>
+    </nav-element>
+  <?php } else { ?>
+    <nav-element onclick="window.location.href = 'login'">
+      <span class="material-icons">login</span>
+      <span>Login / Sign Up</span>
+    </nav-element>
+  <?php } ?>
+
 </left-nav>

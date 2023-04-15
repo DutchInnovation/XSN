@@ -1,55 +1,38 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Sign In / Create Account</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-  <header>
-        <div class="logo">
-          <a href="index.php">
-            <img src="logo.png" alt="Logo"  height="176">
-          </a>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="#">Store</a></li>
-            <li><a href="#">Community</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Support</a></li>
-          </ul>
-        </nav>
-        <div>
-            <a href="login.php">login</a> | language
+<?php
+import("sprint/partials/plain_nav.php");
+?>
+
+<div class="w-100" style="display:flex;justify-content:center;align-items:center;height:calc(100% - 68px)">
+
+  <div class="card" style="width:100%;max-width:800px">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6" style="border-right:1px solid #e0e0e0">
+          <h5 class="card-title mb-0">Sign in</h5>
+          <small>To an existing account</small>
+          <form class="mt-4" action="login" method="post">
+            <div class="form-group">
+              <div class="textfield-box">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username">
+              </div>
             </div>
-      </header>
-    <div class="container">
-      <div class="left">
-        <h1>Sign In</h1>
-        <form>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required>
-          <br>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-          <br>
-          <button type="submit">Sign In</button>
-        </form>
-      </div>
-      <hr>
-      <div class="right">
-        <h1>Create Account</h1>
-        <form>
-          <p>
-            It's free to join and easy to use.
-            Continue on to create your Steam account and get Steam,
-            the leading digital solution for PC and Mac gamers.
-          </p>
-          <a href="create.php">Create Account</a>
-        </form>
+            <div class="form-group">
+              <div class="textfield-box">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-secondary mt-3">Sign In</button>
+          </form>
+        </div>
+        <div class="col-6">
+          <h5 class="card-title mb-0">Create</h5>
+          <small>A new free account</small>
+          <p class="mt-3">It's free to join and easy to use. Continue on to create your XSN account.</p>
+          <a href="register" style="position:absolute;bottom:0" class="btn btn-secondary mt-3">Create Account</a>
+        </div>
       </div>
     </div>
-  </body>
-</html>
+
+</div>

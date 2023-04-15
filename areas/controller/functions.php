@@ -1,40 +1,56 @@
 <?php
 
-function fakeFunction() {
-  echo "Controller configured properly, this text can be found in areas/controller/views/index.php on line 17";
-}
+function register($username, $password, $password_confirm, $email, $security_question_id, $security_question_answer) {
+  $db = new SprintDB('XSN');
 
-function addNote($note_name, $note_content) {
-  $db = new SprintDB('example_db');
-  $sql = "INSERT INTO notes (note_name, note_content) VALUES ('$note_name', '$note_content')";
+  // check if username is taken
+  $sql = "SELECT count(*) FROM users WHERE username = '$username'";
+  $result = $db->fetch($sql);
+  if ($result['count(*)'] == 1) {
+    return JSON_encode(array("state" => "error", "message" => "Username is taken"));
+  }
+
+  // check if email is taken
+  $sql = "SELECT count(*) FROM users WHERE email = '$email'";
+  $result = $db->fetch($sql);
+  if ($result['count(*)'] == 1) {
+    return JSON_encode(array("state" => "error", "message" => "Email is taken"));
+  }
+
+  // check if passwords match
+  if ($password != $password_confirm) {
+    return JSON_encode(array("state" => "error", "message" => "Passwords do not match"));
+  }
+
+
+
+  // create user
+  $password = password_hash($password, PASSWORD_DEFAULT);
+
+  $sql = "INSERT INTO users (username, password, email, security_question_id, security_question_answer) VALUES ('$username', '$password', '$email', '$security_question_id', '$security_question_answer')";
   $db->query($sql);
-}
 
-function updateNote($id, $note_name, $note_content) {
-  $db = new SprintDB('example_db');
-  $sql = "UPDATE notes SET note_name = '$note_name', note_content = '$note_content' WHERE id = '$id'";
-  $db->query($sql);
-}
-
-function deleteNote($id) {
-  $db = new SprintDB('example_db');
-  $sql = "DELETE FROM notes WHERE id = '$id'";
-  $db->query($sql);
-}
-
-function getNote($id) {
-  $db = new SprintDB('example_db');
-  $sql = "SELECT note_name, note_content FROM notes WHERE id = '$id'";
+  $sql = "SELECT count(*) FROM users WHERE username = '$username'";
   $result = $db->fetch($sql);
 
-  if (!$result) {
-    echo "No notes with id $id";
+  if ($result['count(*)'] == 1) {
+    return JSON_encode(array("state" => "success"));
   } else {
-    // Retrieve data from $result
-    $note_name = $result['note_name'];
-    $note_content = $result['note_content'];
-    
-    // Echo retrieved data as json
-    echo json_encode(['note_name' => $note_name, 'note_content' => $note_content]);
+    return JSON_encode(array("state" => "error", "message" => "Unknown error"));
+  }
+}
+
+function login($username, $password) {
+  $db = new SprintDB('XSN');
+
+  $sql = "SELECT * FROM users WHERE username = '$username'";
+  $result = $db->fetch($sql);
+
+  if (password_verify($password, $result['password'])) {
+    $_SESSION['user_id'] = $result['id'];
+    $_SESSION['loggedin'] = true;
+    return JSON_encode(array("state" => "success"));
+  } else {
+    return JSON_encode(array("state" => "error", "message" => "Incorrect username or password"));
   }
 }

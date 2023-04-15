@@ -10,32 +10,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
   }
   
-  switch ($request) {
-    // TEST CASE
-    case "getTest":
-      // fakeFunction() can be found in areas/controller/functions.php
-      fakeFunction();
+  switch ($request) {  
+    case "register":
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+      $password_confirm = $_POST['password_confirm'];
+      $email = $_POST['email'];
+      $security_question_id = $_POST['security_question_id'];
+      $security_question_answer = $_POST['security_question_answer'];
+      echo register($username, $password, $password_confirm, $email, $security_question_id, $security_question_answer);
       break;
-  
-    // SQL EXAMPLE CASES
-    case "addNote":
-      $note_name = $_POST['note_name'];
-      $note_content = $_POST['note_content'];
-      addNote($note_name, $note_content);
-      break;
-    case "updateNote":
-      $id = $_POST['id'];
-      $note_name = $_POST['note_name'];
-      $note_content = $_POST['note_content'];
-      updateNote($id, $note_name, $note_content);
-      break;
-    case "deleteNote":
-      $id = $_POST['id'];
-      deleteNote($id);
-      break;
-    case "getNote":
-      $id = $_POST['id'];
-      getNote($id);
+    case "login":
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+      echo login($username, $password);
       break;
   }
 

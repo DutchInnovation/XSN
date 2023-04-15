@@ -1,11 +1,10 @@
-
 <div class="container">
   <div class="row mt-5">
     <div class="col-12">
       <div class="d-flex align-items-center">
-        <img class="rounded-circle" src="https://via.placeholder.com/50" width="150" height="150">
+        <img class="rounded-circle" src="assets/uploads/profile-img/<?= $user['profile_image'] ?>" width="150" height="150">
         <div class="ml-3 w-100">
-          <h2 class="mb-4">Username
+          <h2 class="mb-4"><?= $_SESSION['username'] ?>
             <span class="badge badge-secondary py-2 float-right">Level 13</span>
           </h2>
           <h4 class="mb-0">Full Name
@@ -16,9 +15,11 @@
     </div>
     <div class="col-12 mt-5">
       <h5>
-      Hey there! I'm Sarah, a 29-year-old teacher based in Austin, Texas. I'm a big fan of hiking, cooking, and playing board games. When I'm not busy with work or grading papers, you can find me on a weekend trip, trying out a new recipe, or hosting game night with friends.
-
-I love meeting new people and exploring new places, so I'm always on the lookout for fun events to attend. On this site, I'm excited to connect with like-minded folks and discover awesome events in my area. Feel free to add me as a friend or shoot me a message if you want to chat or suggest an event!
+        <?php if ($user['bio'] == ""): ?>
+          <span class="text-muted">No bio</span>
+        <?php else: ?>
+          <?= $user['bio'] ?>
+        <?php endif; ?>
       </h5>
     </div>
     <div class="col-12 mt-4">
@@ -37,6 +38,3 @@ I love meeting new people and exploring new places, so I'm always on the lookout
     </div>
   </div>
 </div>
-  
-  <!-- tabs for posts and created activities -->
-  

@@ -2,7 +2,6 @@ function navigate(button, tab_id) {
   var content_tabs = document.getElementsByTagName("content-tab")
 
   for (var i = 0; i < content_tabs.length; i++) {
-    console.log("ajsfdn")
     content_tabs[i].classList.remove("d-block")
     content_tabs[i].classList.add("d-none")
   }

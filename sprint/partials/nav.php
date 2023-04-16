@@ -24,15 +24,15 @@
     <span class="material-icons">emoji_events</span>
     <span>Scoreboard</span>
   </nav-element>
-  <nav-element onclick="navigate('settings-tab')">
-    <span class="material-icons">settings</span>
-    <span>Settings</span>
-  </nav-element>
 
   <?php if (isset($_SESSION["loggedin"])) { ?>
     <nav-element onclick="navigate('profile-tab')">
       <span class="material-icons">person</span>
       <span>Profile</span>
+    </nav-element>
+    <nav-element style="position:absolute;bottom:0px" onclick="navigate('settings-tab')">
+      <span class="material-icons">settings</span>
+      <span>Settings</span>
     </nav-element>
   <?php } else { ?>
     <nav-element onclick="window.location.href = 'login'">

@@ -24,6 +24,10 @@
     <span class="material-icons">emoji_events</span>
     <span>Scoreboard</span>
   </nav-element>
+  <nav-element onclick="navigate('communities-tab')">
+    <span class="material-icons">groups</span>
+    <span>Communities</span>
+  </nav-element>
 
   <?php if (isset($_SESSION["loggedin"])) { ?>
     <nav-element onclick="navigate('profile-tab')">

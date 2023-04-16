@@ -2,7 +2,14 @@
   <div class="row mt-5">
     <div class="col-12">
       <div class="d-flex align-items-center">
-        <img class="pfp rounded-circle" src="assets/uploads/profile-img/<?= $_SESSION['user_id'] ?>.<?= $user['profile_image'] ?>" width="150" height="150">
+        <?php
+        if ($user['profile_image'] == "default") {
+          $user['profile_image'] = "default.png";
+        } else {
+          $user['profile_image'] = $_SESSION['user_id'] . "." . $user['profile_image'];
+        }
+        ?>
+        <img class="pfp rounded-circle" src="assets/uploads/profile-img/<?= $user['profile_image'] ?>" width="150" height="150">
         <div class="ml-3 w-100">
           <h2 class="mb-4">
             <?= $user['username'] ?>

@@ -19,7 +19,7 @@ function update_profile() {
     <div class="col-12">
       <div class="d-flex align-items-center">
         <input name="request" type="hidden" value="update_profile">
-        <img class="pfp rounded-circle" src="assets/uploads/profile-img/<?= $_SESSION['user_id'] ?>.<?= $user['profile_image'] ?>" width="150" height="150">
+        <img class="pfp rounded-circle" src="assets/uploads/profile-img/<?= $user['profile_image'] ?>" width="150" height="150">
         <div class="ml-3 w-100">
           <h2 class="mb-4">
             <input class="form-control" id="edit-username" name="username" type="text" placeholder="Username" value="<?= $user['username'] ?>">
@@ -240,7 +240,7 @@ function update_profile() {
     </div>
     <div class="col-12 mt-3">
       <div class="alert alert-danger" id="edit-error" style="display: none;"></div>
-      <span onclick="update_profile()" class="btn btn-primary btn-block w-100">Save</span>
+      <span onclick="update_profile()" class="btn btn-success btn-block w-100">Save</span>
     </div>
   </div>
 </form>

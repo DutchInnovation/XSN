@@ -8,29 +8,29 @@
 
   <br>
 
-  <nav-element class="active" onclick="navigate(this, 'feed-tab')">
+  <nav-element class="active" onclick="navigate('feed-tab')">
     <span class="material-icons">home</span>
     <span>Home</span>
   </nav-element>
-  <nav-element onclick="navigate(this, 'search-tab')">
+  <nav-element onclick="navigate('search-tab')">
     <span class="material-icons">search</span>
     <span>Search</span>
   </nav-element>
-  <nav-element onclick="navigate(this, 'explore-tab')">
+  <nav-element onclick="navigate('explore-tab')">
     <span class="material-icons">explore</span>
     <span>Explore</span>
   </nav-element>
-  <nav-element onclick="navigate(this, 'scoreboard-tab')">
+  <nav-element onclick="navigate('scoreboard-tab')">
     <span class="material-icons">emoji_events</span>
     <span>Scoreboard</span>
   </nav-element>
-  <nav-element onclick="navigate(this, 'settings-tab')">
+  <nav-element onclick="navigate('settings-tab')">
     <span class="material-icons">settings</span>
     <span>Settings</span>
   </nav-element>
 
   <?php if (isset($_SESSION["loggedin"])) { ?>
-    <nav-element onclick="navigate(this, 'profile-tab')">
+    <nav-element onclick="navigate('profile-tab')">
       <span class="material-icons">person</span>
       <span>Profile</span>
     </nav-element>

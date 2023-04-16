@@ -25,6 +25,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $password = $_POST['password'];
       echo login($username, $password);
       break;
+    case "update_profile":
+      if ($_FILES["profile_image"]["name"] != "") {
+        $pfp_upload = pfp_upload();
+
+        if ($pfp_upload['state'] == "success") {
+          $username = $_POST['username'];
+          $full_name = $_POST['full_name'];
+          $bio = $_POST['bio'];
+          $country = $_POST['country'];
+          $profile_image = $pfp_upload['type'];
+          
+          update_pfp($profile_image);
+          update_profile($username, $full_name, $bio, $country);
+        }
+      } else {
+        $username = $_POST['username'];
+        $full_name = $_POST['full_name'];
+        $bio = $_POST['bio'];
+        $country = $_POST['country'];
+
+        echo update_profile($username, $full_name, $bio, $country);
+      }
+
+      break;
   }
 
 } else {

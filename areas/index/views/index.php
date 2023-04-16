@@ -1,5 +1,5 @@
 <?php
-$site_name .= " - home";
+$site_name .= " / Home";
 $page_description = "Activity Feed";
 
 include("sprint/partials/nav.php");
@@ -7,8 +7,9 @@ include("sprint/partials/activities.php");
 
 $db = new SprintDB('XSN');
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT username, email, date_joined, is_staff, is_superuser, profile_image, bio, country FROM users WHERE id = $user_id LIMIT 1";
+$sql = "SELECT exp, username, full_name, email, date_joined, is_staff, is_superuser, profile_image, bio, country FROM users WHERE id = $user_id LIMIT 1";
 $user = $db->fetch($sql);
+$user['level'] = floor(sqrt($user['exp'] / 100));
 ?>
 
 <content-tab class="d-block" id="feed-tab">
@@ -29,3 +30,13 @@ $user = $db->fetch($sql);
 <content-tab class="d-none" id="profile-tab">
   <?php include("sprint/partials/pages/profile.php"); ?>
 </content-tab>
+<content-tab class="d-none" id="edit-profile-tab">
+  <?php include("sprint/partials/pages/edit-profile.php"); ?>
+</content-tab>
+
+<script>
+if (anchorp.Get().length > 0) {
+  navigate(anchorp.Get()[0])
+  anchorp.Clear()
+}
+</script>

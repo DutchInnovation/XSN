@@ -2,13 +2,20 @@
   <div class="row mt-5">
     <div class="col-12">
       <div class="d-flex align-items-center">
-        <img class="rounded-circle" src="assets/uploads/profile-img/<?= $user['profile_image'] ?>" width="150" height="150">
+        <img class="pfp rounded-circle" src="assets/uploads/profile-img/<?= $_SESSION['user_id'] ?>.<?= $user['profile_image'] ?>" width="150" height="150">
         <div class="ml-3 w-100">
-          <h2 class="mb-4"><?= $_SESSION['username'] ?>
-            <span class="badge badge-secondary py-2 float-right">Level 13</span>
+          <h2 class="mb-4">
+            <?= $user['username'] ?>
+            <span class="badge badge-secondary py-2 float-right">Level <?= $user['level'] ?></span>
           </h2>
-          <h4 class="mb-0">Full Name
-            <a class="btn btn-primary shadow-none float-right" href="edit-profile.php">Edit Profile</a>
+          <h4 class="mb-0">
+            <?php 
+            if ($user['country'] != "") {
+              echo '<img width="35" src="https://flagsapi.com/' . $user['country'] . '/flat/64.png">';
+            }
+            ?>
+            <?= $user['full_name'] ?>
+            <span class="btn btn-primary shadow-none float-right" onclick="navigate('edit-profile-tab')">Edit Profile</span>
           </h4>
         </div>
       </div>

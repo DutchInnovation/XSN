@@ -1,4 +1,4 @@
-function navigate(button, tab_id) {
+function navigate(tab_id) {
   var content_tabs = document.getElementsByTagName("content-tab")
 
   for (var i = 0; i < content_tabs.length; i++) {
@@ -11,8 +11,10 @@ function navigate(button, tab_id) {
 
   var nav_elements = document.getElementsByTagName("nav-element")
   for (var i = 0; i < nav_elements.length; i++) {
-    nav_elements[i].classList.remove("active")
+    if (nav_elements[i].getAttribute("onclick") != null && nav_elements[i].getAttribute("onclick").includes(tab_id)) {
+      nav_elements[i].classList.add("active")
+    } else {
+      nav_elements[i].classList.remove("active")
+    }
   }
-
-  button.classList.add("active")
 }

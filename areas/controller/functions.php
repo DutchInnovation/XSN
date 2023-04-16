@@ -137,13 +137,18 @@ function load_community($community_id) {
   $sql = "SELECT * FROM communities WHERE id = $community_id LIMIT 1";
   $community = $db->fetch($sql);
 
-  $sql = "SELECT * FROM activities WHERE community_id = $community_id";
+  $today = strtotime(date("Y-m-d"));
+  $sql = "SELECT * FROM activities WHERE community_id = $community_id AND date_event > $today ORDER BY date_event ASC";
   $activities = $db->fetch_multiple($sql);
+
+  $sql = "SELECT count(*) FROM community_members WHERE community_id = $community_id";
+  $member_count = $db->fetch($sql);
 
   return JSON_encode(array(
     "state" => "success",
     "community" => $community,
     "activities" => $activities,
+    "member_count" => $member_count['count(*)'],
     "is_member" => is_member($community_id)
   ));
 }

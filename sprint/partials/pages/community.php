@@ -48,6 +48,7 @@ function load_community(id) {
 
     $("#c-name").html(data.community.name)
     $("#c-description").html(data.community.description)
+    $("#c-members").html(data.member_count + " members")
 
     if (data.is_member) {
       $("#join-community").attr("onclick", "leave_community(this, " + data.community.id + ")")
@@ -115,13 +116,15 @@ function create_activity() {
       <img id="c-img" height="150" width="150" src="assets/uploads/community-img/default.png">
     </div>
     <div class="col-7">
-      <div class="mt-5">
+      <div class="mt-4">
         <h3 id="c-name">Community name</h3>
-        <p id="c-description">Community description</p>
+        <p id="c-members">Members: 0</p>
+        <hr>
+        <p class="mb-0" id="c-description">Community description</p>
       </div>
     </div>
     <div class="col-2">
-      <button id="join-community" class="btn btn-info float-right mt-5" onclick="join_community(this, current_community_id)">Join</button>
+      <span id="join-community" class="btn btn-info float-right mt-5" onclick="join_community(this, current_community_id)">Join</span>
     </div>
   </div>
 </div>
@@ -136,6 +139,6 @@ function create_activity() {
 
 <div id="activities"></div>
 
-<button class="btn btn-float btn-success my-1" type="button" onclick="create_activity()">
-  <i class="fas fa-plus"></i>
+<button class="btn btn-float btn-success" style="position:absolute;bottom:20px;left:20px;font-size:1.5rem" type="button" onclick="create_activity()">
+  +
 </button>

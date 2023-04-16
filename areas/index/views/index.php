@@ -23,6 +23,9 @@ $user['level'] = floor(sqrt($user['exp'] / 100));
 <content-tab class="d-none" id="community-tab">
   <?php include("sprint/partials/pages/community.php"); ?>
 </content-tab>
+<content-tab class="d-none" id="create-activity-tab">
+  <?php include("sprint/partials/pages/create_activity.php"); ?>
+</content-tab>
 <content-tab class="d-none" id="communities-tab">
   <?php include("sprint/partials/pages/communities.php"); ?>
 </content-tab>

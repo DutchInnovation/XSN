@@ -14,8 +14,6 @@ function update_profile() {
 }
 </script>
 
-<iframe name="update_profile_frame" style="display:none"></iframe>
-
 <form id="update_profile_form" action="controller" method="POST" target="update_profile_frame" enctype="multipart/form-data" class="container">
   <div class="row mt-5">
     <div class="col-12">

@@ -102,3 +102,48 @@ function pfp_upload() {
     return array("state" => "error", "message" => "Sorry, there was an error uploading your file.");
   }
 }
+
+function join_community($community_id) {
+  $db = new SprintDB('XSN');
+  $user_id = $_SESSION['user_id'];
+  $sql = "INSERT INTO community_members (community_id, user_id) VALUES ($community_id, $user_id)";
+  $db->query($sql);
+  return JSON_encode(array("state" => "success"));
+}
+
+function leave_community($community_id) {
+  $db = new SprintDB('XSN');
+  $user_id = $_SESSION['user_id'];
+  $sql = "DELETE FROM community_members WHERE community_id = $community_id AND user_id = $user_id";
+  $db->query($sql);
+  return JSON_encode(array("state" => "success"));
+}
+
+function is_member($community_id) {
+  $db = new SprintDB('XSN');
+  $user_id = $_SESSION['user_id'];
+  $sql = "SELECT count(*) FROM community_members WHERE community_id = $community_id AND user_id = $user_id";
+  $result = $db->fetch($sql);
+  if ($result['count(*)'] == 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function load_community($community_id) {
+  $db = new SprintDB('XSN');
+  $user_id = $_SESSION['user_id'];
+  $sql = "SELECT * FROM communities WHERE id = $community_id LIMIT 1";
+  $community = $db->fetch($sql);
+
+  $sql = "SELECT * FROM activities WHERE community_id = $community_id";
+  $activities = $db->fetch_multiple($sql);
+
+  return JSON_encode(array(
+    "state" => "success",
+    "community" => $community,
+    "activities" => $activities,
+    "is_member" => is_member($community_id)
+  ));
+}

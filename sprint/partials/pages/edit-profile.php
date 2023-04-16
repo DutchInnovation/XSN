@@ -240,7 +240,14 @@ function update_profile() {
     </div>
     <div class="col-12 mt-3">
       <div class="alert alert-danger" id="edit-error" style="display: none;"></div>
-      <span onclick="update_profile()" class="btn btn-success btn-block w-100">Save</span>
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <span onclick="navigate('profile-tab')" class="btn btn-danger btn-block w-100">Cancel</span>
+        </div>
+        <div class="col-12 col-lg-8">
+          <span onclick="update_profile()" class="btn btn-success btn-block w-100">Save</span>
+        </div>
+      </div>
     </div>
   </div>
 </form>

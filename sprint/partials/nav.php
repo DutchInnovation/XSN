@@ -12,21 +12,24 @@
     <span class="material-icons">home</span>
     <span>Home</span>
   </nav-element>
+  <nav-element onclick="navigate('communities-tab')">
+    <span class="material-icons">groups</span>
+    <span>Communities</span>
+  </nav-element>
+  <nav-element onclick="navigate('activities-tab')">
+    <span class="material-icons">event</span>
+    <span>
+      Activities
+      <span id="activity-count" class="badge badge-pill badge-primary">3</span>
+    </span>
+  </nav-element>
   <nav-element onclick="navigate('search-tab')">
     <span class="material-icons">search</span>
     <span>Search</span>
   </nav-element>
-  <nav-element onclick="navigate('explore-tab')">
-    <span class="material-icons">explore</span>
-    <span>Explore</span>
-  </nav-element>
   <nav-element onclick="navigate('scoreboard-tab')">
     <span class="material-icons">emoji_events</span>
     <span>Scoreboard</span>
-  </nav-element>
-  <nav-element onclick="navigate('communities-tab')">
-    <span class="material-icons">groups</span>
-    <span>Communities</span>
   </nav-element>
 
   <?php if (isset($_SESSION["loggedin"])) { ?>

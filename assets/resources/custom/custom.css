@@ -44,25 +44,12 @@ nav-element.active {
   margin-right: 10px;
 }
 
-activities {
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  flex-wrap: wrap;
-  width: 300px;
-  height: 100%;
-  padding: 20px;
-}
-
 content-tab {
   display: block;
   position: absolute;
   left: 300px;
   top: 0;
-  width: calc(100% - 600px);
+  width: calc(100% - 300px);
   height: 100%;
   overflow-y: scroll;
   scrollbar-width: thin;

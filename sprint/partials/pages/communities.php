@@ -32,11 +32,17 @@ usort($communities, function ($a, $b) {
 }
 </style>
 
+<script>
+function open_community(id) {
+  load_community(id)
+}
+</script>
+
 <div class="container">
   <div class="row mt-5">
     <?php foreach ($communities as $community) { ?>
       <div class="col-12 col-lg-6">
-        <div class="community-square" style="border-radius:10px">
+        <div class="community-square pointer mb-3" style="border-radius:10px" id="community-<?php echo $community['id']; ?>" onclick="open_community(<?php echo $community['id']; ?>)">
           <div class="row">
             <div class="col-6">
               <div class="p-2">
@@ -44,12 +50,6 @@ usort($communities, function ($a, $b) {
                 <p class="ml-2"><?php echo $community['description']; ?></p>
                 <p class="ml-2">
                   <span class="badge badge-primary"><?php echo $community['member_count']; ?> members</span>
-                  <?php if ($community['is_member']) { ?>
-                    <span class="badge badge-success">Member</span>
-                    <span class="badge badge-danger pointer">Leave</span>
-                  <?php } else { ?>
-                    <span class="badge badge-info pointer">Join</span>
-                  <?php } ?>
                 </p>
               </div>
             </div>

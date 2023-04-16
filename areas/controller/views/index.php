@@ -48,7 +48,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       } else {
         echo update_profile($username, $full_name, $bio, $country);
       }
-
+      break;
+    case "join_community":
+      $community_id = $_POST['community_id'];
+      echo join_community($community_id);
+      break;
+    case "leave_community":
+      $community_id = $_POST['community_id'];
+      echo leave_community($community_id);
+      break;
+    case "load_community":
+      $community_id = $_POST['community_id'];
+      echo load_community($community_id);
       break;
   }
 

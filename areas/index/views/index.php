@@ -3,7 +3,6 @@ $site_name .= " / Home";
 $page_description = "Activity Feed";
 
 include("sprint/partials/nav.php");
-include("sprint/partials/activities.php");
 
 $db = new SprintDB('XSN');
 $user_id = $_SESSION['user_id'];
@@ -18,14 +17,17 @@ $user['level'] = floor(sqrt($user['exp'] / 100));
 <content-tab class="d-none" id="search-tab">
   <?php include("sprint/partials/pages/search.php"); ?>
 </content-tab>
-<content-tab class="d-none" id="explore-tab">
-  <?php include("sprint/partials/pages/explore.php"); ?>
-</content-tab>
 <content-tab class="d-none" id="scoreboard-tab">
   <?php include("sprint/partials/pages/scoreboard.php"); ?>
 </content-tab>
+<content-tab class="d-none" id="community-tab">
+  <?php include("sprint/partials/pages/community.php"); ?>
+</content-tab>
 <content-tab class="d-none" id="communities-tab">
   <?php include("sprint/partials/pages/communities.php"); ?>
+</content-tab>
+<content-tab class="d-none" id="activities-tab">
+  <?php include("sprint/partials/pages/activities.php"); ?>
 </content-tab>
 <content-tab class="d-none" id="profile-tab">
   <?php include("sprint/partials/pages/profile.php"); ?>
